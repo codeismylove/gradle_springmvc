@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="default" extends="struts-default,json-default">
+		<!--<action name="saveUserAction" method="save" class="userAction">
+			<result name="success">/success.jsp</result>
+		</action>
+	  	<action name="findUserAction" method="findUser" class="activityUserAction">
+			<result name="activityUser"></result>
+		</action>-->
+		<action name="loginAction" method="saveOrUpdate" class="loginAction">
+		    <result name="success">/WEB-INF/views/index.jsp</result>
+		</action>
+
+		<action name="saveRegisterAction" method="saveRegister" class="activityUserAction">
+		    <result name="success" type="json">
+		    </result>
+		</action>
+		
+		<action name="jsonDataAction" method="checkUserName" class="activityUserAction">
+            <result  name="success" type="json">
+				<param name="root">checkResult</param>
+				<param name="excludeProperties">activityUserDTO,activityUser,list,success</param>
+			</result>
+        </action>
+        
+		<action name="userListJsonAction" class="userListAction">
+            <result name="success" type="json">
+                <!-- <param name="root">userListResult</param> -->
+				<param name="includeProperties">  
+           			gridModel.*,rows, page, total, record  
+        		</param>
+        		<param name="noCache">true</param>  
+        		<param name="ignoreHierarchy">false</param>  
+			</result>
+        </action>
+        	
+		<action name="registerAction" method="register" class="activityUserAction">
+		    <result name="success" type="json">
+		    	<param name="root">list</param>
+		    	<param name="excludeProperties">activityUserDTO,activityUser,checkResult,success</param>
+<!-- 		    	<param name="noCache">true</param>  
+        		<param name="ignoreHierarchy">false</param>  -->
+        	</result>
+		</action>
+		
+		<action name="activityPublicAction" method="saveOrUpdate" class="activityPublishAction">
+		    <result name="success" type="json">
+        	</result>
+		</action>
+		
+		<action name="publishAction" method="publish" class="activityPublishAction">
+		    <result name="success" type="json">
+		    	<param name="root">list</param>
+		    	<param name="excludeProperties">activityUserDTO,activityUser,checkResult,success</param>
+        	</result>
+		</action>
+		
+		<action name="activityListJsonAction" class="activityListAction">
+            <result name="success" type="json">
+                <!-- <param name="root">userListResult</param> -->
+				<param name="includeProperties">  
+           			gridModel.*,rows, page, total, record  
+        		</param>
+        		<param name="noCache">true</param>  
+        		<param name="ignoreHierarchy">false</param>  
+			</result>
+        </action>
+	</package>
+</struts>

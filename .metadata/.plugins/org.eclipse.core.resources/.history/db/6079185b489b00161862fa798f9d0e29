@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.base.dao;
+
+/**
+ * @author linzhenying
+ * @date 2016年10月26日
+ */
+public interface IUerDao {
+
+}

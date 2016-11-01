@@ -1,0 +1,200 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>  
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!--html5的头文档标签-->
+
+<html>
+<head>
+<title>活动发布系统</title>
+<meta charset="utf-8" />
+
+<!--CSS-->
+<link type="text/css" href="css/jquery-ui-1.8.5.custom.css"
+	rel="stylesheet" />
+<style type="text/css">
+body {
+	font: 80.5% "Trebuchet MS", sans-serif;
+	margin: 50px;
+}
+</style>
+
+<style type="text/css">
+.selectable .ui-selecting {
+	background: #FECA40;
+}
+
+.selectable .ui-selected {
+	background: #F39814;
+	color: white;
+}
+
+.selectable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 110%;
+}
+
+.selectable li {
+	margin: 1px;
+	padding: 0.4em;
+	font-size: 1.0em;
+	height: 20px;
+}
+</style>
+
+<!--JS-->
+<!--1.必须先引入jquery的核心库-->
+<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.8.5.custom.min.js"></script>
+<!--2.按照依赖顺序,再引入jquery的插件核心库: 掌握检测文件是否正确加载-->
+<script type="text/javascript" src="js/jquery.layout.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('body').layout({
+			applyDefaultStyles : true
+		});
+
+		// Accordion
+		$("#accordion").accordion({
+			header : "h3"
+		});
+
+		$(".tabs").tabs();
+		$(".tabs").hide();//隐藏全部
+		$("#first-tabs").show();//现实首页
+
+		$(".selectable").selectable({
+			stop : function() {
+				//for  each
+				$(".ui-selected", this).each(function(index, domEle) {
+					//alert($(domEle).attr("id"));
+					$(".tabs").hide();//显示前先隐藏全部
+					$("#" + $(domEle).attr("id") + "-tabs").show();
+
+				});
+			}
+		});
+
+	});
+</script>
+</head>
+
+<body>
+
+	<div class="ui-layout-center">
+		<!--模块内容-->
+		<div class="tabs" id="first-tabs">
+		
+			<ul>
+				<li><a href="#custemer1-tabs-1">首页</a></li>
+			</ul>
+			<form action="findUserAction.action" method="post">
+				<div id="custemer1-tabs-1"><s:property value="#request.activityUser.remake"/></div>
+				<div><input type="text" name="activityUser.remake" value="<s:property value="#request.activityUser.remake"/>"/></div>
+			</form>
+		</div>
+
+
+
+		<div class="tabs" id="custemer1-tabs">
+			<ul>
+				<li><a href="#custemer1-tabs-1">活动发布</a></li>
+			</ul>
+			<div id="custemer1-tabs-1">123</div>
+		</div>
+
+		<div class="tabs" id="custemer2-tabs">
+			<ul>
+				<li><a href="#custemer2-tabs-2">企业客户管理</a></li>
+			</ul>
+			<div id="custemer2-tabs-2">grid/form/chart/....</div>
+		</div>
+
+		<div class="tabs" id="custemer3-tabs">
+			<ul>
+				<li><a href="#custemer3-tabs-3">潜在客户管理</a></li>
+			</ul>
+			<div id="custemer3-tabs-3">grid/form/chart/....</div>
+		</div>
+
+
+		<div class="tabs" id="order-tabs">
+			<ul>
+				<li><a href="#order-tabs-1">订单管理</a></li>
+				<li><a href="#order-tabs-2">订单跟踪</a></li>
+				<li><a href="#order-tabs-3">完成订单</a></li>
+			</ul>
+			<div id="order-tabs-1">111111111111</div>
+			<div id="order-tabs-2">222222222222</div>
+			<div id="order-tabs-3">333333333333</div>
+		</div>
+
+	</div>
+
+
+	<div class="ui-layout-north">活动发布系统</div>
+	<div class="ui-layout-south">
+		<center>2016⊙BNUZ</center>
+	</div>
+
+	<div class="ui-layout-west">
+		<!--项目菜单-->
+		<div id="accordion">
+			<div>
+				<h3>
+					<a href="#">活动模块</a>
+				</h3>
+				<div>
+					<ol class="selectable">
+						<li class="ui-widget-content" id="custemer1">活动发布</li>
+						<li class="ui-widget-content" id="custemer2">活动列表</li>
+						<!--<li class="ui-widget-content" id="custemer3">潜在客户模块</li>-->
+					</ol>
+				</div>
+			</div>
+
+			<div>
+				<h3>
+					<a href="#">活动报到登记模块</a>
+				</h3>
+				<div>
+					<ol class="selectable">
+						<li class="ui-widget-content" id="order">活动名单列表</li>
+						<li class="ui-widget-content">已报道名单列表</li>
+						<!--<li class="ui-widget-content">订单跟踪模块</li>-->
+					</ol>
+				</div>
+			</div>
+
+			<div>
+				<h3>
+					<a href="#">活动报道模块</a>
+				</h3>
+				<div>Nam dui erat, auctor a, dignissim quis.</div>
+			</div>
+
+			<div>
+				<h3>
+					<a href="#">用户管理模块</a>
+				</h3>
+				<div>Nam dui erat, auctor a, dignissim quis.</div>
+			</div>
+			<div>
+				<h3>
+					<a href="#">评论模块</a>
+				</h3>
+				<div>
+					<div>Nam dui erat, auctor a, dignissim quis.</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui-layout-east">East</div>
+
+</body>
+</html>

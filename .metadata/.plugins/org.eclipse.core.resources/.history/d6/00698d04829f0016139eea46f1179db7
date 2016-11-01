@@ -1,0 +1,13 @@
+package com.base.util;
+
+public class StringUtil {
+	//引用静态区的的字符串字面量
+	private String s="Hello";
+	//引用堆上的字符串对象
+	private String p=new String("Hello");
+	//字符串长度
+	int length=s.length();
+	//取单个字符
+	char s1=s.charAt(2);
+	
+}

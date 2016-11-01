@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.base.dao;
+
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+import com.ssh.ex01.beans.ActivityUser;
+
+/**
+ * @author linzhenying
+ * @date 2016年10月26日
+ */
+public interface IUerDao extends PagingAndSortingRepository<ActivityUser, String>, JpaSpecificationExecutor<ActivityUser>{
+	
+}

@@ -1,0 +1,8 @@
+package com.ssh.ex01.dao;
+
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+public interface IActivityCheckinDao extends PagingAndSortingRepository<T, ID>, JpaSpecificationExecutor<T> {
+
+}

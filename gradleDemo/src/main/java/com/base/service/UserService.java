@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package com.base.service;
+
+import com.base.entity.Employee;
+
+/**
+ * @author linzhenying
+ * @date 2016年10月26日
+ */
+public class UserService implements IUserService {
+
+	@Override
+	public Employee login(String userName, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+}

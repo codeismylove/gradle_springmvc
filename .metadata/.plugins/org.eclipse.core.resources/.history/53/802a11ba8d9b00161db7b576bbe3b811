@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.base.service;
+
+/**
+ * @author linzhenying
+ * @date 2016年10月26日
+ */
+public class UserService implements IUserService {
+
+}

@@ -1,0 +1,9 @@
+connection.arguments=
+connection.gradle.distribution=GRADLE_DISTRIBUTION(LOCAL_INSTALLATION(F\:\\devolep\\gradle-3.1))
+connection.java.home=E\:\\develop\\Java\\jdk1.7.0_79
+connection.jvm.arguments=
+connection.project.dir=
+containers=org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7/,org.eclipse.jst.j2ee.internal.web.container
+derived.resources=.gradle,build
+eclipse.preferences.version=1
+project.path=\:
